@@ -27,6 +27,14 @@
     "url": "https://github.com/jimzhan/server.js/issues"
   },
   "homepage": "https://github.com/jimzhan/server.js#readme",
+  "eslintConfig": {
+    "root": true,
+    "extends": "standard",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    }
+  },
   "nodemonConfig": {
     "watch": [
       "src",
