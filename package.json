@@ -1,0 +1,60 @@
+{
+  "name": "server",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Web server application startup kit with set of best practices.",
+  "main": "index.js",
+  "scripts": {
+    "debug": "nodemon src/server.js",
+    "lint": "eslint src",
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimzhan/server.js.git"
+  },
+  "keywords": [
+    "Fastify",
+    "ESM",
+    "Server",
+    "Best",
+    "Practices",
+    "Boilerplate"
+  ],
+  "author": "Jim Zhan <jim.zhan@me.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jimzhan/server.js/issues"
+  },
+  "homepage": "https://github.com/jimzhan/server.js#readme",
+  "nodemonConfig": {
+    "watch": [
+      "src",
+      "config"
+    ],
+    "ext": "cjs,js",
+    "ignore": [
+      "src/**/*.spec.js"
+    ],
+    "execMap": {
+      "js": "node --inspect"
+    },
+    "env": {
+      "NODE_DEBUG": 9229,
+      "NODE_ENV": "development"
+    }
+  },
+  "dependencies": {
+    "config": "^3.3.10",
+    "fastify": "^4.25.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "nodemon": "^3.0.2",
+    "standard": "^17.1.0"
+  }
+}
