@@ -26,11 +26,16 @@ server.register(swagger, () => ({
   exposeRoute: true
 }))
 
-server.register(pressure, {
-  maxEventLoopDelay: 1000,
-  maxHeapUsedBytes: 100000000,
-  maxRssBytes: 100000000,
-  maxEventLoopUtilization: 0.98
+server.register(pressure, () => {
+  return {
+    healthCheck: async function() {
+      // @TODO: any required checkpoints.
+      return true
+    },
+    message: 'Under Pressure 😯',
+    exposeStatusRoute: '/status',
+    healthCheckInterval: 5000
+  }
 })
 
 export default server
