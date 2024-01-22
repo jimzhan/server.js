@@ -1,5 +1,6 @@
 import Fastify from 'fastify'
 import cors from '@fastify/cors'
+import formbody from '@fastify/formbody'
 import helmet from '@fastify/helmet'
 import swagger from '@fastify/swagger'
 import pressure from '@fastify/under-pressure'
@@ -9,10 +10,14 @@ import logger from './logger.js'
 const server = Fastify({
   logger,
   requestIdLogLabel: 'traceId',
-  genReqId: (request) => nanoid()
+  genReqId: request => request.headers['x-request-id'] ||
+    request.headers['x-trace-id'] ||
+    nanoid()
 })
 
 server.register(cors)
+
+server.register(formbody)
 
 server.register(helmet, {
   noCache: true,
@@ -33,7 +38,7 @@ server.register(swagger, () => ({
 
 server.register(pressure, () => {
   return {
-    healthCheck: async function() {
+    healthCheck: async () => {
       // @TODO: any required checkpoints.
       return true
     },
