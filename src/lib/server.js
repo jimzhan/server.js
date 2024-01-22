@@ -2,10 +2,15 @@ import Fastify from 'fastify'
 import cors from '@fastify/cors'
 import helmet from '@fastify/helmet'
 import swagger from '@fastify/swagger'
-import pressure from '@fastify/underPressure'
+import pressure from '@fastify/under-pressure'
+import { nanoid } from 'nanoid'
 import logger from './logger.js'
 
-const server = Fastify({ logger })
+const server = Fastify({
+  logger,
+  requestIdLogLabel: 'traceId',
+  genReqId: (request) => nanoid()
+})
 
 server.register(cors)
 
