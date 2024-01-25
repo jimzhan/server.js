@@ -9,6 +9,7 @@ Web server application startup kit with set of best practices.
 - [ ] Knex.js
 - [ ] Kafka Connector
 - [ ] Swagger Integration
-- [ ] Move to Monorepo
+- [ ] Move to Monorepo (nx)
 - [ ] Core package
 - [ ] DB package
+- [ ] **TBD** autod integration
