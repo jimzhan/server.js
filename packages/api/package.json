@@ -1,0 +1,52 @@
+{
+  "name": "@server/api",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "API Services",
+  "main": "index.js",
+  "scripts": {
+    "debug": "nodemon src/index.js",
+    "lint": "eslint src",
+    "start": "node src/index.js"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src",
+      "config"
+    ],
+    "ext": "cjs,js",
+    "ignore": [
+      "src/**/*.spec.js"
+    ],
+    "execMap": {
+      "js": "node --inspect"
+    },
+    "env": {
+      "NODE_DEBUG": 9229,
+      "NODE_ENV": "development"
+    }
+  },
+  "dependencies": {
+    "@server/core": "*",
+    "@fastify/cors": "^8.5.0",
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/helmet": "^11.1.1",
+    "@fastify/swagger": "^8.13.0",
+    "@fastify/under-pressure": "^8.3.0",
+    "config": "^3.3.10",
+    "fastify": "^4.25.2",
+    "nanoid": "^5.0.4",
+    "pino": "^8.17.2",
+    "pino-pretty": "^10.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "nodemon": "^3.0.2",
+    "standard": "^17.1.0",
+    "nx": "17.2.8"
+  }
+}
